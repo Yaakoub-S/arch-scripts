@@ -1,6 +1,6 @@
 # Maintainer: Yaâkoub Saouti <yaakoubsaouti2001@gmail.com>
 pkgname=arch-scripts
-pkgver=1.0
+pkgver=1.b54f007
 pkgrel=1
 pkgdesc='My archlinux scripts'
 arch=('any')

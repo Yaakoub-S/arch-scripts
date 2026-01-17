@@ -1,19 +1,19 @@
 PREFIX ?= /usr
-
 BIN = $(PREFIX)/bin
 LIB = $(PREFIX)/lib/arch-scripts
-INSTALL = install
+
+BIN_FILES := $(wildcard bin/*)
+LIB_FILES := $(wildcard lib/*)
 
 .PHONY: install
 
 install:
-	# bin
-	if ls bin/* >/dev/null 2>&1; then \
-		install -d "$(DESTDIR)$(BIN)"; \
-		install -m 755 bin/* "$(DESTDIR)$(BIN)/"; \
+	@# bin
+	@if [ -n "$(BIN_FILES)" ]; then \
+		install -m 755 $(BIN_FILES) "$(DESTDIR)$(BIN)/"; \
 	fi
-	# libs
-	if ls lib/* >/dev/null 2>&1; then \
+	@# libs
+	@if [ -n "$(LIB_FILES)" ]; then \
 		install -d "$(DESTDIR)$(LIB)"; \
-		install -m 644 shlib/* "$(DESTDIR)$(LIB)/"; \
+		install -m 644 $(LIB_FILES) "$(DESTDIR)$(LIB)/"; \
 	fi
